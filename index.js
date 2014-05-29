@@ -28,7 +28,10 @@ var proxy = httpProxy.createProxyServer({
 			next();
 		})
 		.use(function(req, res) {
-			proxy.web(req, res);
+			proxy.web(req, res)
+				.on('error', function(e) {
+					console.log(e, req);
+				});
 		});
 
 http.createServer(app).listen(6004);
