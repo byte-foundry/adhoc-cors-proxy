@@ -5,7 +5,7 @@ var colors = require('colors'),
 	httpProxy = require('http-proxy');
 
 var proxy = httpProxy.createProxyServer({
-		target: 'http://prototypo.cloudapp.net:6001/'
+		target: 'http://localhost:6001/'
 	}),
 	app = connect()
 		// setup CORS headers
@@ -36,8 +36,6 @@ proxy.on('error', function(e) {
 });
 
 http.createServer(app).listen(6004);
-
-
 
 colors.setTheme({}); // use colors to prevent jshint complaints
 console.log('proxy server '.blue + 'started '.green.bold + 'on port '.blue + '6004 '.yellow);
