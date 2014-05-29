@@ -28,13 +28,16 @@ var proxy = httpProxy.createProxyServer({
 			next();
 		})
 		.use(function(req, res) {
-			proxy.web(req, res)
-				.on('error', function(e) {
-					console.log(e, req);
-				});
+			proxy.web(req, res);
 		});
 
+proxy.on('error', function(e) {
+	console.log(e);
+});
+
 http.createServer(app).listen(6004);
+
+
 
 colors.setTheme({}); // use colors to prevent jshint complaints
 console.log('proxy server '.blue + 'started '.green.bold + 'on port '.blue + '6004 '.yellow);
