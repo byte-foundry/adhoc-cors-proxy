@@ -1,6 +1,6 @@
 {
   "name": "cors-proxy",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "lib/cors-proxy.js",
   "description": "ad-hoc cors proxy for Prototypo",
   "homepage": "https://github.com/byte-foundry/cors-proxy",
@@ -32,10 +32,8 @@
     "grunt-nodemon": "^0.2.1",
     "jshint-stylish": "^0.2.0",
     "load-grunt-tasks": "^0.4.0",
-    "time-grunt": "^0.3.1"
+    "time-grunt": "^0.3.1",
+    "docopt": "^0.4.0"
   },
-  "scripts": {
-    "test": "grunt test",
-    "start": "grunt"
-  }
+  "bin": "./bin/index.js"
 }
