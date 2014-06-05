@@ -1,8 +1,8 @@
 {
   "name": "adhoc-cors-proxy",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "bin/index.js",
-  "description": "Simple reliable node-based cors proxy",
+  "description": "Simple reliable cors proxy",
   "homepage": "https://github.com/byte-foundry/adhoc-cors-proxy",
   "bugs": "https://github.com/byte-foundry/adhoc-cors-proxy/issues",
   "author": {
@@ -15,10 +15,7 @@
     "url": "https://github.com/byte-foundry/adhoc-cors-proxy"
   },
   "license": "MIT",
-  "files": [
-    "lib"
-  ],
-  "keywords": [],
+  "keywords": ["cors","proxy"],
   "dependencies": {
     "colors": "^0.6.2",
     "connect": "^2.17.3",
