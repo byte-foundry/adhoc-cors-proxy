@@ -8,16 +8,18 @@ var colors = require('colors'),
 var doc = [
 			'Cors Proxy',
 			'\nUsage:',
-				'cors-proxy <target> [--port=<port>] [--origin=<origin>] [--credentials]',
-				'cors-proxy -h | --help | --version',
+				'corsproxy <target> [--port=<port>] [--origin=<origin>] [--credentials]',
+				'corsproxy -h | --help | --version',
 			'\nOptions:',
-				'-p <port>, --port=<port>        Port number. [default: 6004]',
+				'-p <port>, --port=<port>        Port number. [default: 9292]',
+				'--host=<host>                   Host',
 				'-o <origin>, --origin=<origin>  Restrict origin domain',
 				'-c, --credentials               access-control-allow-credentials=true'
 		].join('\n  '),
 	options = docopt(doc, {version: require('../package').version}),
 	target = process.env.CORSPROXY_TARGET || options['<target>'],
-	port = process.env.CORSPROXY_PORT || options['--port'],
+	port = process.env.CORSPROXY_PORT || process.env.PORT  || options['--port'],
+	host = process.env.CORSPROXY_HOST || process.env.HOST  || options['--host'],
 	origin = process.env.CORSPROXY_ORIGIN || options['--origin'] || true,
 	credentials = process.env.CORSPROXY_CREDENTIALS || options['--credentials'] || false;
 
@@ -31,25 +33,6 @@ var proxy = httpProxy.createProxyServer({
 			origin: origin,
 			credentials: credentials
 		}))
-		// log requests that result in 40X statuses from the target
-		.use(function(req, res, next) {
-			var _writeHead = res.writeHead;
-
-			res.writeHead = function(statusCode) {
-				if ( /^4\d\d/.test(statusCode) ) {
-					console.warn(
-						'target responded a '.blue + ( statusCode + '' ).red.bold +
-						' to '.blue + ( req.method + ' ' + req.url ).yellow +
-						' with headers:\n'.blue +
-						JSON.stringify( req.headers ).yellow
-					);
-				}
-
-				_writeHead.apply(res, arguments);
-			};
-
-			next();
-		})
 		// prevent http-proxy from overwriting the CORS headers
 		.use(function(req, res, next) {
 			var _setHeader = res.setHeader;
@@ -71,7 +54,7 @@ proxy.on('error', function(e) {
 	console.error(e);
 });
 
-http.createServer(app).listen(port);
+http.createServer(app).listen(port, host);
 
 colors.setTheme({}); // use colors to prevent jshint complaints
 console.log('proxy to '.blue + target.yellow + ' started '.green.bold + 'on port '.blue + port.yellow);

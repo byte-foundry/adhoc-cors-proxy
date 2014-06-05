@@ -1,10 +1,10 @@
 {
-  "name": "cors-proxy",
+  "name": "adhoc-cors-proxy",
   "version": "0.1.0",
-  "main": "lib/cors-proxy.js",
-  "description": "ad-hoc cors proxy for Prototypo",
-  "homepage": "https://github.com/byte-foundry/cors-proxy",
-  "bugs": "https://github.com/byte-foundry/cors-proxy/issues",
+  "main": "bin/index.js",
+  "description": "Simple reliable node-based cors proxy",
+  "homepage": "https://github.com/byte-foundry/adhoc-cors-proxy",
+  "bugs": "https://github.com/byte-foundry/adhoc-cors-proxy/issues",
   "author": {
     "name": "Louis-Rémi Babé",
     "email": "lrbabe@gmail.com",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/byte-foundry/cors-proxy"
+    "url": "https://github.com/byte-foundry/adhoc-cors-proxy"
   },
   "license": "MIT",
   "files": [
@@ -23,7 +23,8 @@
     "colors": "^0.6.2",
     "connect": "^2.17.3",
     "http-proxy": "^1.1.4",
-    "cors": "^2.3.1"
+    "cors": "^2.3.1",
+    "docopt": "^0.4.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.10.0",
@@ -32,8 +33,9 @@
     "grunt-nodemon": "^0.2.1",
     "jshint-stylish": "^0.2.0",
     "load-grunt-tasks": "^0.4.0",
-    "time-grunt": "^0.3.1",
-    "docopt": "^0.4.0"
+    "time-grunt": "^0.3.1"
   },
-  "bin": "./bin/index.js"
+  "bin": {
+    "corsproxy": "./bin/index.js"
+  }
 }
