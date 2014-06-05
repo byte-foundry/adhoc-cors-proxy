@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var colors = require('colors'),
 	http = require('http'),
 	connect = require('connect'),
