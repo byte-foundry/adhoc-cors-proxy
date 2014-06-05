@@ -25,7 +25,3 @@ global install
 ## Exemple
 
     corsproxy http://www.target.com -p 9292
-
-On a server, use [forever](https://github.com/nodejitsu/forever) and port 80 (requires admin priviliges, e.g. `sudo`)
-
-    forever -l corsproxy.log -e err.log -o out.log corsproxy http://www.target.com -p 80
