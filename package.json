@@ -1,6 +1,6 @@
 {
   "name": "adhoc-cors-proxy",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "bin/index.js",
   "description": "Simple reliable cors proxy",
   "homepage": "https://github.com/byte-foundry/adhoc-cors-proxy",
@@ -15,7 +15,10 @@
     "url": "https://github.com/byte-foundry/adhoc-cors-proxy"
   },
   "license": "MIT",
-  "keywords": ["cors","proxy"],
+  "keywords": [
+    "cors",
+    "proxy"
+  ],
   "dependencies": {
     "colors": "^0.6.2",
     "connect": "^2.17.3",
