@@ -1,6 +1,6 @@
 {
   "name": "adhoc-cors-proxy",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "bin/index.js",
   "description": "Simple reliable cors proxy",
   "homepage": "https://github.com/byte-foundry/adhoc-cors-proxy",
