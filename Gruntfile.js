@@ -17,15 +17,17 @@ module.exports = function (grunt) {
 				src: 'Gruntfile.js'
 			},
 			bin: {
-				src: ['index.js']
-			},
-			test: {
-				src: ['test/**/*.js']
+				src: ['bin/index.js']
 			}
 		},
 		nodemon: {
 			dev: {
-				script: 'index.js'
+				script: 'bin/index.js',
+				options: {
+					args: [
+						grunt.option('target')
+					].concat( process.argv.slice(3) )
+				}
 			}
 		}
 	});
