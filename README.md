@@ -10,7 +10,7 @@ $ corsproxy www.target.com -p 8080
 proxy to http://www.target.com started on port 8080
 ```
 
-Why *simple reliable*? Because it just assembles two well tested and actively maintained middlewares: [http-proxy](https://github.com/nodejitsu/node-http-proxy) and [cors](https://github.com/troygoode/node-cors/). It's a package you could have written yourselve, but this one's ready to use with complete usage instructions (thanks to [docopt](http://github.com/docopt/docopt.coffee)).
+Why *simple reliable*? Because it just assembles two well tested and actively maintained middlewares: [http-proxy](https://github.com/nodejitsu/node-http-proxy) and [cors](https://github.com/troygoode/node-cors/). It's a package you could have written yourself, but this one's ready to use with complete usage instructions (thanks to [docopt](http://github.com/docopt/docopt.coffee)).
 
 ## Installation
 
@@ -42,7 +42,7 @@ corsproxy <target> [--port=<port>] [--origin=<origin>] [--credentials]
 corsproxy -h | --help | --version
 ```
 
-## Options
+### Options
 
 ```bash
 -p <port>, --port=<port>        Port number. [default: 9292]
@@ -50,6 +50,8 @@ corsproxy -h | --help | --version
 -o <origin>, --origin=<origin>  Restrict origin domain
 -c, --credentials               access-control-allow-credentials=true
 ```
+
+Alternatively, the proxy can be configured entirely using environment variables. Check [the sources](https://github.com/byte-foundry/adhoc-cors-proxy/blob/master/bin/index.js#L21) for a better understanding of configuration priority.
 
 ## Production
 
